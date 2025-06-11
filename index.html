@@ -53,6 +53,35 @@
       0% { left: 0; }
       100% { left: calc(100% - 100px); }
     }
+
+    #hackedOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(255, 0, 0, 0.88);
+      z-index: 9999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 1s ease-out;
+      cursor: pointer;
+    }
+
+    .hacked-message {
+      color: white;
+      font-size: 60px;
+      font-weight: bold;
+      font-family: 'Courier New', Courier, monospace;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px 60px;
+      border: 5px solid #ff0000;
+      border-radius: 12px;
+      box-shadow: 0 0 30px black;
+      text-align: center;
+      text-shadow: 3px 3px 10px black;
+    }
   </style>
 </head>
 <body>
@@ -68,6 +97,11 @@
   <img src="image/cicada5.jpg" class="crawler" style="bottom: 20px; right: 50px; width: 80px;">
   <img src="image/Scorpian.jpg" class="crawler" style="top: 750px; left: 10px; width: 100px;">
   <img src="image/image11111.png" class="crawler" style="top: 950px; right: 100px; width: 90px;">
+
+  <!-- Overlay: YOU'VE BEEN HACKED -->
+  <div id="hackedOverlay" onclick="dismissHacked()">
+    <div class="hacked-message">⚠️ YOU'VE BEEN HACKED ⚠️</div>
+  </div>
 
   <div class="page-container">
     <div class="grid-container">
@@ -95,62 +129,23 @@
     <p style="color: white;">This is some text around the grid.</p>
   </div>
 
-  <!-- Move Image Script (optional) -->
+  <!-- Click-to-dismiss Hacked Script -->
   <script>
-    function moveImage() {
-      var image = document.getElementById("myImage");
-      image.style.left = "1000px";
-      image.style.top = "1000px";
+    function dismissHacked() {
+      const overlay = document.getElementById("hackedOverlay");
+      overlay.style.opacity = "0";
+      setTimeout(() => {
+        overlay.style.display = "none";
+      }, 1000);
     }
   </script>
 
-  <!-- 🐔 IPChicken Easter Egg -->
-  <a href="http://www.ipchicken.com">
-    <img src="http://www.ipchicken.com/images/ipc.gif" width="88" height="31" border="0" style="position: absolute; bottom: 10px; left: 10px;">
-  </a>
-<div id="hackedOverlay" onclick="dismissHacked()">
-  <div class="hacked-message">⚠️ YOU'VE BEEN HACKED ⚠️</div>
-</div>
+  
 
-<script>
-  function dismissHacked() {
-    const overlay = document.getElementById("hackedOverlay");
-    overlay.style.opacity = "0";
-    setTimeout(() => {
-      overlay.style.display = "none";
-    }, 1000);
-  }
-</script>
-
-<style>
-  #hackedOverlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(255, 0, 0, 0.88);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: opacity 1s ease-out;
-    cursor: pointer;
-  }
-
-  .hacked-message {
-    color: white;
-    font-size: 60px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    background: rgba(0, 0, 0, 0.7);
-    padding: 40px 60px;
-    border: 5px solid #ff0000;
-    border-radius: 12px;
-    box-shadow: 0 0 30px black;
-    text-align: center;
-    text-shadow: 3px 3px 10px black;
-  }
-</style>
 </body>
+  <!-- 🐔 IPChicken -->
+  <a href="http://www.ipchicken.com">
+    <img src="http://www.ipchicken.com/images/ipc.gif" width="88" height="31" border="0"
+         style="position: absolute; bottom: 10px; left: 10px;">
+  </a>
 </html>
