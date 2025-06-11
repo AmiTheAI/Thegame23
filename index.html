@@ -109,7 +109,7 @@
     <img src="http://www.ipchicken.com/images/ipc.gif" width="88" height="31" border="0" style="position: absolute; bottom: 10px; left: 10px;">
   </a>
 <div id="hackedOverlay" onclick="dismissHacked()">
-  <p>⚠️ YOU'VE BEEN HACKED ⚠️</p>
+  <div class="hacked-message">⚠️ YOU'VE BEEN HACKED ⚠️</div>
 </div>
 
 <script>
@@ -118,7 +118,7 @@
     overlay.style.opacity = "0";
     setTimeout(() => {
       overlay.style.display = "none";
-    }, 1000); // Wait 1s before hiding completely
+    }, 1000);
   }
 </script>
 
@@ -129,27 +129,27 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(255, 0, 0, 0.85);
-    color: white;
-    font-size: 48px;
-    font-weight: bold;
+    background: rgba(255, 0, 0, 0.88);
+    z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
-    text-align: center;
-    cursor: pointer;
     transition: opacity 1s ease-out;
-    font-family: monospace;
-    text-shadow: 2px 2px 8px black;
+    cursor: pointer;
   }
 
-  #hackedOverlay p {
-    margin: 0;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.6);
-    border: 5px solid red;
-    border-radius: 10px;
+  .hacked-message {
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 40px 60px;
+    border: 5px solid #ff0000;
+    border-radius: 12px;
+    box-shadow: 0 0 30px black;
+    text-align: center;
+    text-shadow: 3px 3px 10px black;
   }
 </style>
 </body>
